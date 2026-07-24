@@ -1,12 +1,11 @@
 package com.oxad.admin_api.controller;
 
-
 import com.oxad.admin_api.entity.RegisterUser;
 import com.oxad.admin_api.repository.RegisterUserRepository;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/registerusers")
@@ -20,8 +19,11 @@ public class RegisterUserController {
     }
 
     @GetMapping
-    public List<RegisterUser> getAllUsers() {
+    public Page<RegisterUser> getAllUsers(
+            @RequestParam(defaultValue = "0") int page) {
 
-        return repository.findAll();
+        Pageable pageable = PageRequest.of(page, 5);
+
+        return repository.findAll(pageable);
     }
 }
