@@ -35,7 +35,17 @@ public class RegisterUser {
     @Column(name = "is_logged_in")
     private Integer isLoggedIn;
 
+@Column(name = "owner")
+private String owner;
 
+@Column(name = "email")
+private String email;
+
+@Column(name = "password")
+private String password;
+
+@Column(name = "admin_cont")
+private Long adminCont;
     // Getters and Setters
 
     public Long getId() {
@@ -53,7 +63,37 @@ public class RegisterUser {
     public void setGymname(String gymname) {
         this.gymname = gymname;
     }
+public String getOwner() {
+    return owner;
+}
 
+public void setOwner(String owner) {
+    this.owner = owner;
+}
+
+public String getEmail() {
+    return email;
+}
+
+public void setEmail(String email) {
+    this.email = email;
+}
+
+public String getPassword() {
+    return password;
+}
+
+public void setPassword(String password) {
+    this.password = password;
+}
+
+public Long getAdminCont() {
+    return adminCont;
+}
+
+public void setAdminCont(Long adminCont) {
+    this.adminCont = adminCont;
+}
     public String getLocation() {
         return location;
     }
